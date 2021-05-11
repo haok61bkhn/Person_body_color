@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: fast-colorthief
+Version: 0.0.4
+Summary: Dominant colors in image
+Home-page: https://github.com/bedapisl/fast-colorthief
+Author: Bedrich Pisl
+Author-email: bedapisl@gmail.com
+License: MIT
+Description: # Get_color_object_with_mask
+        
+        setup:
+        
+            python3 setup.py install --user
+            
+            
+        test:
+           
+            if you want to get mask image , you can change path image in draw_polygon.py and run it
+            
+            python3 main.py
+        
+            
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
