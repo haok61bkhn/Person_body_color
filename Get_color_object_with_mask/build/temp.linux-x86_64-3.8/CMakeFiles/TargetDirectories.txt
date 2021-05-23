@@ -1,5 +1,5 @@
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/rebuild_cache.dir
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/edit_cache.dir
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/fast_colorthief_backend.dir
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/pybind11/CMakeFiles/rebuild_cache.dir
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/pybind11/CMakeFiles/edit_cache.dir
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/rebuild_cache.dir
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/edit_cache.dir
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/fast_colorthief_backend.dir
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/pybind11/CMakeFiles/rebuild_cache.dir
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/pybind11/CMakeFiles/edit_cache.dir

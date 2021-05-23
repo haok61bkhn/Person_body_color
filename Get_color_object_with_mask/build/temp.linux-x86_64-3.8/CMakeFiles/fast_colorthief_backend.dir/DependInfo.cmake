@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/cpp/fast_colorthief_backend.cpp" "/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/fast_colorthief_backend.dir/cpp/fast_colorthief_backend.cpp.o"
+  "/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/cpp/fast_colorthief_backend.cpp" "/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/CMakeFiles/fast_colorthief_backend.dir/cpp/fast_colorthief_backend.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

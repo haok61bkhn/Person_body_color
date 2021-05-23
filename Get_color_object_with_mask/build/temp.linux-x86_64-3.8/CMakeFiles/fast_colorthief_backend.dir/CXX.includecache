@@ -186,13 +186,13 @@ optional
 variant
 -
 
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/cpp/cmap.hpp
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/cpp/cmap.hpp
 vector
 -
 unordered_map
 -
 
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/cpp/fast_colorthief_backend.cpp
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/cpp/fast_colorthief_backend.cpp
 pybind11/pybind11.h
 -
 pybind11/numpy.h
@@ -202,7 +202,7 @@ pybind11/stl.h
 iostream
 -
 cmap.hpp
-/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/cpp/cmap.hpp
+/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/cpp/cmap.hpp
 
 /usr/include/python3.8/Python.h
 patchlevel.h

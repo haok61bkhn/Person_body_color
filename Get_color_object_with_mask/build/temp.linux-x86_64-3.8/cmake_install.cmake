@@ -1,4 +1,4 @@
-# Install script for directory: /home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask
+# Install script for directory: /home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,14 +37,9 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/pybind11/cmake_install.cmake")
+  include("/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/pybind11/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/build/temp.linux-x86_64-3.8/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

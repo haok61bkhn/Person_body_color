@@ -48,6 +48,7 @@ class Person_body:
                         transforms.Normalize(mean=[0.406, 0.456, 0.485], std=[0.225, 0.224, 0.229])
                          ])
         self.palette = self.get_palette(self.num_classes)
+        self.upsample = torch.nn.Upsample(size=self.input_size, mode='bilinear', align_corners=True)
         self.load_model()
         
     
@@ -106,6 +107,38 @@ class Person_body:
 
         return input, meta
 
+    def prepares(self, imgs):
+        metas=[]
+        inputs=[]
+
+        for img in imgs:
+            h, w, _ = img.shape
+
+            # Get person center and scale
+            person_center, s = self._box2cs([0, 0, w - 1, h - 1])
+            r = 0
+            trans = get_affine_transform(person_center, s, r, self.input_size)
+            input = cv2.warpAffine(
+                img,
+                trans,
+                (int(self.input_size[1]), int(self.input_size[0])),
+                flags=cv2.INTER_LINEAR,
+                borderMode=cv2.BORDER_CONSTANT,
+                borderValue=(0, 0, 0))
+
+            input = self.transform(input)
+            inputs.append(input)
+            # input=torch.unsqueeze(input, 0)
+            meta = {
+                'center': person_center,
+                'height': h,
+                'width': w,
+                'scale': s,
+                'rotation': r
+            }
+            metas.append(meta)
+
+        return inputs, metas
 
     def get_palette(self,num_cls):
         """ Returns the color map for visualizing the segmentation mask.
@@ -158,11 +191,44 @@ class Person_body:
         # output_img.save("test.png")
         return img_cv
 
+    def detect_mutil(self,imgs):
+        res_imgs=[]
+        images, metas = self.prepares(imgs)
+           
+       
+        t1=time.time()
+        images=torch.stack(images)
+        outputs = self.model(images.to(self.device))
+        # print(outputs[0].shape)
+        print("time infer ",time.time()-t1)
+        for output,meta in zip(outputs,metas):
+            c = meta['center']
+            s = meta['scale']
+            w = meta['width']
+            h = meta['height']
+           
+            
+            upsample_output = self.upsample(output[-1][0].unsqueeze(0))
+            upsample_output = upsample_output.squeeze()
+            upsample_output = upsample_output.permute(1, 2, 0)  # CHW -> HWC
+            
+            logits_result = transform_logits(upsample_output.data.cpu().numpy(), c, s, w, h, input_size=self.input_size)
+        
+            parsing_result = np.argmax(logits_result, axis=2)[:, ::-1]
+            
+            img_cv=np.asarray(parsing_result, dtype=np.uint8)
+            res_imgs.append(img_cv)
+        # output_img = Image.fromarray(np.asarray(parsing_result, dtype=np.uint8))
+        # output_img.putpalette(self.palette)
+        # output_img.save("test.png")
+        return res_imgs
 import time
 if __name__ == '__main__':
-    X=Segmentation()
-    img=cv2.imread("inputs/000011.jpg",cv2.IMREAD_COLOR)
+    X=Person_body()
+    img=cv2.imread("a.jpg",cv2.IMREAD_COLOR)
     for i in range(10):
         t1=time.time()
-        X.detect(img)
+        imgs=X.detect_mutil([img,img,img,img,img,img,img])
+        # cv2.imshow("image",imgs[0])
+        # cv2.waitKey(0)
         print("time ",time.time()-t1)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/haobk/Desktop/code/Segmentation_part_body/visualize/Get_color_object_with_mask/pybind11
+# Install script for directory: /home/haobk/Mydata/HTI/Person_body_color/Get_color_object_with_mask/pybind11
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,10 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
