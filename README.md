@@ -4,8 +4,9 @@ download model
     gdown https://drive.google.com/uc?id=19iRZDwV6mN87Z9bW_Go1Xt4ijXfA2Eys
     
 setup:
-  
+    
     cd Get_color_object_with_mask
+    rm -rf build
     sh setup.sh
     
     
