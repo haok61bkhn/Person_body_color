@@ -3,7 +3,7 @@ from color_object import Color_Object
 import cv2
 class Person_body_color:
     def __init__(self):
-        self.color_object = Color_Object()
+        self.color_object = Color_Object(2)
         self.person_body = Person_body()
         self.label_body=['Background', 'Hat', 'Hair', 'Glove', 'Sunglasses', 'Upper-clothes', 'Dress', 'Coat',
                   'Socks', 'Pants', 'Jumpsuits', 'Scarf', 'Skirt', 'Face', 'Left-arm', 'Right-arm',
@@ -26,7 +26,7 @@ class Person_body_color:
 
     def predicts(self,images):
         labels=self.person_body.detect_mutil(images)
-        cv2.imwrite("label.jpg",label)
+        cv2.imwrite("label.jpg",labels)
         ress=[]
         for label in labels:
             res={}

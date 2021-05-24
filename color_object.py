@@ -11,8 +11,9 @@ import cv2
 from PIL import Image
 from Get_color_object_with_mask.main import Color_object
 class Color_Object:
-    def __init__(self):
-        self.color_object =Color_object()
+    def __init__(self,color_count):
+        self.color_count=color_count
+        self.color_object =Color_object(color_count=max(3,color_count))
         color_var=Color_var()
         self.hex_to_color= color_var.hex_to_color
         self.css3_names_to_hex = color_var.css3_names_to_hex
@@ -46,8 +47,11 @@ class Color_Object:
         return  self.hex_to_color[self.css3_names_to_hex[self.names[index]]]
 
     def predict_color_name(self,image,mask,list_mask,num_mask_idx=20):
-        res=self.color_object.get_color(image=image,mask=mask,num_mask_idx=num_mask_idx,list_mask=list_mask,output="rgb")
-        return self.convert_rgb_to_names(list(res[0]))
+        list_res=[]
+        ress=self.color_object.get_color(image=image,mask=mask,num_mask_idx=num_mask_idx,list_mask=list_mask,output="rgb")
+        for i in range(min(self.color_count,len(ress))):
+            list_res.append(self.convert_rgb_to_names(list(ress[i])))
+        return list_res
 
 import time
 if __name__=="__main__":

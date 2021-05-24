@@ -15,7 +15,7 @@ from datasets.simple_extractor_dataset import SimpleFolderDataset
 from collections import OrderedDict
 dataset_settings = {
     'lip': {
-        'input_size': [473, 473],
+        'input_size': [128, 64],
         'num_classes': 20,
         'label': ['Background', 'Hat', 'Hair', 'Glove', 'Sunglasses', 'Upper-clothes', 'Dress', 'Coat',
                   'Socks', 'Pants', 'Jumpsuits', 'Scarf', 'Skirt', 'Face', 'Left-arm', 'Right-arm',
@@ -36,7 +36,7 @@ dataset_settings = {
 
 class Person_body:
     def __init__(self,dataset="lip"): #dataset ['lip', 'atr', 'pascal']
-        self.weight_path ="weights/checkpoint_60.pth.tar"
+        self.weight_path ="weights/checkpoint_100.pth.tar"
         # self.weight_path="weights/pascal.pth"
         self.device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.num_classes = dataset_settings[dataset]['num_classes']
@@ -218,17 +218,18 @@ class Person_body:
             
             img_cv=np.asarray(parsing_result, dtype=np.uint8)
             res_imgs.append(img_cv)
-        # output_img = Image.fromarray(np.asarray(parsing_result, dtype=np.uint8))
-        # output_img.putpalette(self.palette)
-        # output_img.save("test.png")
+
+            output_img = Image.fromarray(np.asarray(parsing_result, dtype=np.uint8))
+            output_img.putpalette(self.palette)
+            output_img.save("test1.png")
         return res_imgs
 import time
 if __name__ == '__main__':
     X=Person_body()
-    img=cv2.imread("a.jpg",cv2.IMREAD_COLOR)
+    img=cv2.imread("b.jpg",cv2.IMREAD_COLOR)
     for i in range(10):
         t1=time.time()
-        imgs=X.detect_mutil([img,img,img,img,img,img,img])
+        imgs=X.detect_mutil([img])
         # cv2.imshow("image",imgs[0])
         # cv2.waitKey(0)
         print("time ",time.time()-t1)
